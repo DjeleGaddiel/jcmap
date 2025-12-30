@@ -3,8 +3,8 @@ import { Platform } from "react-native";
 import * as SecureStore from 'expo-secure-store';
 
 // ===== CONFIGURATION =====
-// URL de production (Render) - À configurer après le déploiement
-const PRODUCTION_URL = "https://jcmap-api.onrender.com/api";
+// URL de production (Render) - API déployée
+const PRODUCTION_URL = "https://jcmap.onrender.com/api";
 
 // URL de développement local
 const LOCAL_IP = "192.168.1.13";
