@@ -27,6 +27,8 @@ import { Notification } from './notifications/notification.entity';
         database: process.env.DATABASE_NAME,
         entities: [User, Event, Organization, Notification],
         synchronize: true, // Be careful in production
+        // SSL requis pour Neon et autres hébergeurs cloud
+        ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
       }),
     }),
     AuthModule,
