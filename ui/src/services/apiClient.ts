@@ -2,13 +2,19 @@ import axios from "axios";
 import { Platform } from "react-native";
 import * as SecureStore from 'expo-secure-store';
 
-// 192.168.1.16 est l'IP locale de votre machine (trouvée via ipconfig)
-// Utile pour les appareils réels sur le même WiFi et les émulateurs.
-const LOCAL_IP = "192.168.1.13";
+// ===== CONFIGURATION =====
+// URL de production (Render) - À configurer après le déploiement
+const PRODUCTION_URL = "https://jcmap-api.onrender.com/api";
 
-const BASE_URL = Platform.OS === "android" 
+// URL de développement local
+const LOCAL_IP = "192.168.1.13";
+const DEV_URL = Platform.OS === "android" 
   ? `http://${LOCAL_IP}:3000/api` 
-  : `http://${LOCAL_IP}:3000/api`; // Ou localhost pour le simulateur iOS
+  : `http://${LOCAL_IP}:3000/api`;
+
+// Sélection automatique de l'URL selon l'environnement
+// __DEV__ est true en mode développement, false en production build
+const BASE_URL = __DEV__ ? DEV_URL : PRODUCTION_URL;
 
 const apiClient = axios.create({
   baseURL: BASE_URL,

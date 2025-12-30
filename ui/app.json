@@ -16,10 +16,16 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.jcmap.mobile",
+      "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION"
+      ],
       "edgeToEdgeEnabled": false,
       "predictiveBackGestureEnabled": false
     },
